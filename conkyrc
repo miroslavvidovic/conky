@@ -12,12 +12,11 @@ draw_shades=false,
 draw_outline=false,
 draw_borders=false,
 
-
 -------------------------------------
 --  Window Specifications
 -------------------------------------
 gap_x=1050,
-gap_y=150,
+gap_y=280,
 minimum_height=620,
 minimum_width=268,
 own_window=true,
@@ -30,7 +29,6 @@ border_outer_margin=0,
 --alignment="middle_middle",
 --own_window_argb_visual=true,
 --own_window_argb_value=0,
-
 
 -------------------------------------
 --  Text Settings
@@ -46,46 +44,42 @@ short_units=true,
 pad_percents=2,
 top_name_width=7,
 
-
 -------------------------------------
 --  Color Scheme
 -------------------------------------
 default_color="F9F9F9",
 color1="F9F9F9",
 color2="6FDA44",
-color3="F9F9F9",
-color4="F9F9F9",
-color5="DCDCDC",
-color6="F9F9F9",
-color7="F9F9F9",
-color8="F9F9F9",
 -------------------------------------
 --  Text
 -------------------------------------
 }
 conky.text = [[
 \
-${color3}${voffset 172}${alignc 77}${execi 300 LANG=${template9} LC_TIME=${template9}}${color}
+${color2}${voffset 120}${alignc 77}${execi 300}${color}
 \
 ${voffset -117}${font Droid Sans Mono :size=26}${alignc}${color2}${time %H:%M}${font}${color}
 \
-${voffset 4}${font Droid Sans :size=10}${alignc}${color6}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %-d"}${font}${color}
+${voffset 4}${font Droid Sans :size=10}${alignc}${color1}${execi 300 date +"%A, %-d. %B "}${font}${color}
 \
 ${hr}
 \
-${voffset 5}PC: ${nodename}
-${voffset 5}Uptime: ${uptime}
-${voffset 5}IP: ${addr wlo1}
-${voffset 5}Wireless: ${wireless_link_qual_perc wlo1}%
+${color2}${voffset 5}${font Droid Sans :size=15}${alignc}${nodename}${font}${color}
+${hr}
+${color2}${voffset 5}Uptime: ${color1} ${uptime}
+${color2}${voffset 5}IP: ${color1}${addr wlo1}
+${color2}${voffset 5}Processes:${color1} ${processes} ${color2} Running:${color1}${running_processes}
 \
 ${hr}
+${voffset 10}${color2}Wireless ${color1} ${alignr}${wireless_link_qual_perc wlo1}%
+${wireless_link_bar wlo1}
 \
-${voffset 10}${color2}Battery ${color0}${alignr}${battery}
+${voffset 10}${color2}Battery ${color1}${alignr}${battery}
 ${battery_bar}
-${voffset 10}${color2}HDD ${color0}${alignr}${fs_used} / ${fs_size}
+${voffset 10}${color2}HDD ${color1}${alignr}${fs_used} / ${fs_size}
 ${fs_bar}
 \
-${voffset 10}${color2}CPU ${color0}${alignr}${cpu cpu0}%
+${voffset 10}${color2}CPU ${color1}${alignr}${cpu cpu0}% ${color}
 ${cpubar cpu0 5,}
 ${top name 1} $alignr ${top cpu 1}%
 ${top name 2} $alignr ${top cpu 2}%
@@ -93,10 +87,10 @@ ${top name 3} $alignr ${top cpu 3}%
 ${top name 4} $alignr ${top cpu 4}%
 ${top name 5} $alignr ${top cpu 5}%
 \
-${voffset 10}${color2}Swap ${color0}${alignr}${swap} / ${swapfree}
+${voffset 10}${color2}Swap ${color1}${alignr}${swap} / ${swapfree}
 ${swapbar}
 \
-${voffset 10}${color2}RAM ${color0}${alignr}${mem} / ${memmax}
+${voffset 10}${color2}RAM ${color1}${alignr}${mem} / ${memmax}
 ${membar 5,}
 ${top_mem name 1} $alignr ${top_mem mem_res 1}
 ${top_mem name 2} $alignr ${top_mem mem_res 2}
@@ -104,7 +98,4 @@ ${top_mem name 3} $alignr ${top_mem mem_res 3}
 ${top_mem name 4} $alignr ${top_mem mem_res 4}
 ${top_mem name 5} $alignr ${top_mem mem_res 5}
 \
-
 ]]
-
-
