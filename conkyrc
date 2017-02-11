@@ -49,14 +49,14 @@ top_name_width=7,
 -------------------------------------
 default_color="F9F9F9",
 color1="F9F9F9",
-color2="6FDA44",
+color2="F15C1C",
 -------------------------------------
 --  Text
 -------------------------------------
 }
 conky.text = [[
 \
-${color2}${voffset 120}${alignc 77}${execi 300}${color}
+${color2}${voffset 180}${alignc 77}${execi 300}${color}
 \
 ${voffset -117}${font Droid Sans Mono :size=26}${alignc}${color2}${time %H:%M}${font}${color}
 \
