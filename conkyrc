@@ -16,7 +16,7 @@ draw_borders=false,
 --  Window Specifications
 -------------------------------------
 gap_x=1050,
-gap_y=280,
+gap_y=380,
 minimum_height=620,
 minimum_width=268,
 own_window=true,
@@ -56,7 +56,7 @@ color2="F15C1C",
 }
 conky.text = [[
 \
-${color2}${voffset 180}${alignc 77}${execi 300}${color}
+${color2}${voffset 120}${alignc 77}${execi 300}${color}
 \
 ${voffset -117}${font Droid Sans Mono :size=26}${alignc}${color2}${time %H:%M}${font}${color}
 \
@@ -64,22 +64,26 @@ ${voffset 4}${font Droid Sans :size=10}${alignc}${color1}${execi 300 date +"%A, 
 \
 ${hr}
 \
-${color2}${voffset 5}${font Droid Sans :size=15}${alignc}${nodename}${font}${color}
+${color2}${voffset 5}${font Droid Sans :size=15}${alignc}${nodename}${color} - ${distribution}${font}
 ${hr}
 ${color2}${voffset 5}Uptime: ${color1} ${uptime}
 ${color2}${voffset 5}IP: ${color1}${addr wlo1}
-${color2}${voffset 5}Processes:${color1} ${processes} ${color2} Running:${color1}${running_processes}
+${color2}${voffset 5}Kernel:${color1} ${kernel}
+${color2}${voffset 5}Processes:${color1} ${processes} ${color2} Running:${color1} ${running_processes}
 \
 ${hr}
-${voffset 10}${color2}Wireless ${color1} ${alignr}${wireless_link_qual_perc wlo1}%
+${voffset 10}${color2}Wireless ${color1} ${alignr} "${wireless_essid}" - ${wireless_link_qual_perc wlo1}%
 ${wireless_link_bar wlo1}
+\
+${voffset 10}${color2}Down ${color1} ${downspeedf wlo1} KiB ${alignr}${color2}Up ${color1} ${upspeedf wlo1} KiB
+${downspeedgraph wlo1 20,100} ${alignr}${upspeedgraph wlo1 20,100}
 \
 ${voffset 10}${color2}Battery ${color1}${alignr}${battery}
 ${battery_bar}
 ${voffset 10}${color2}HDD ${color1}${alignr}${fs_used} / ${fs_size}
 ${fs_bar}
 \
-${voffset 10}${color2}CPU ${color1}${alignr}${cpu cpu0}% ${color}
+${voffset 10}${color2}CPU ${color1} ${alignr}${cpu cpu0}% ${color}
 ${cpubar cpu0 5,}
 ${top name 1} $alignr ${top cpu 1}%
 ${top name 2} $alignr ${top cpu 2}%
