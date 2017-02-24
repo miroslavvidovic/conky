@@ -1,0 +1,68 @@
+conky.config = {
+
+-------------------------------------
+--  Generic Settings
+-------------------------------------
+background=true,
+update_interval=1,
+double_buffer=true,
+no_buffers=true,
+
+draw_shades=false,
+draw_outline=false,
+draw_borders=false,
+
+-------------------------------------
+--  Window Specifications
+-------------------------------------
+gap_x=60,
+gap_y=50,
+minimum_height=620,
+minimum_width=268,
+own_window=true,
+own_window_type="dock",
+own_window_argb_visual=true,
+own_window_argb_value=0,
+own_window_hints="undecorated,below,sticky,skip_taskbar,skip_pager",
+border_inner_margin=0,
+border_outer_margin=0,
+--alignment="middle_middle",
+--own_window_argb_visual=true,
+--own_window_argb_value=0,
+
+-------------------------------------
+--  Text Settings
+-------------------------------------
+use_xft=true,
+xftalpha=1,
+font="Droid Sans:size=10",
+text_buffer_size=256,
+override_utf8_locale=true,
+
+short_units=true,
+short_units=true,
+pad_percents=2,
+top_name_width=7,
+
+-------------------------------------
+--  Color Scheme
+-------------------------------------
+default_color="F9F9F9",
+color1="F9F9F9",
+color2="F15C1C",
+-------------------------------------
+--  Text
+-------------------------------------
+}
+conky.text = [[
+\
+${voffset 40}
+${hr}
+${color2}${voffset 5}Taskwarrior${color}
+Pending tasks: ${execi 300 task status:pending count} 
+Completed tasks: ${execi 300 task status:completed count} 
+\
+${color2}${voffset 5}Tmux${color}
+${execi 300 tmux ls | cut -d ' ' -f 1,2,3,11}
+\
+]]
